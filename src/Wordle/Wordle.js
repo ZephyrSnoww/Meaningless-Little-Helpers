@@ -49,6 +49,14 @@ class Wordle extends React.Component {
     }
     
     render() {
+        let wordElements = [];
+
+        for (let word of this.validWords) {
+            wordElements.push(
+                <div className="wordle words-list-item">{word}</div>
+            );
+        }
+
         return (
             <div className="wordle main-container">
                 <div className="wordle container">
@@ -92,7 +100,9 @@ class Wordle extends React.Component {
                     </div>
                     <div className="wordle words-list-container">
                         <div className="wordle words-list-title">Best Guesses</div>
-                        <div className="wordle words-list"></div>
+                        <div className="wordle words-list">
+                            {wordElements}
+                        </div>
                     </div>
                 </div>
             </div>
