@@ -46,8 +46,9 @@
     font-family: Renogare;
     font-size: 17px;
     text-align: center;
-    transform: scale(0);
-    transition: .25s ease-out;
+    transform: scale(0.0001);
+    transition: .5s ease-out;
+    overflow-wrap: break-word;
 }
 
 .wordle.help:hover::after {
