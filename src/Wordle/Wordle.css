@@ -73,37 +73,23 @@
     transform: scale(1);
 }
 
-/* .wordle.help::after {
-    position: absolute;
-    width: 200px;
-    height: 75px;
-    background-color: var(--color-bg);
-    border: 1px solid var(--color-a1-light);
-    border-radius: 10px;
-    bottom: 25px;
-    display: none;
+.wordle.words-list-container {
+    height: 100%;
+    display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
-    padding: 10px;
-    font-family: Renogare;
-    font-weight: lighter;
-    font-size: 17px;
-    text-align: center;
-    transform: scale(0.0001);
-    transition: .5s ease-out;
-    overflow-wrap: break-word;
+    flex-direction: column;
 }
 
-.wordle.help:hover::after {
-    display: block;
-    transform: scale(1);
+.wordle.words-list-title {
+    color: var(--color-a1-light);
+    border-bottom: 2px solid var(--color-a1-light);
+    font-size: 22px;
 }
 
-.wordle.help.word::after {
-    content: "Letters that you know the location of, in the correct location";
+.wordle.words-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
-
-.wordle.help.known::after {
-    content: "Letters that you don't know the location of, in any order";
-} */

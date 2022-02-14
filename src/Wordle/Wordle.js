@@ -90,6 +90,10 @@ class Wordle extends React.Component {
                             inputRegExp={/[A-z]/}
                         />
                     </div>
+                    <div className="wordle words-list-container">
+                        <div className="wordle words-list-title">Best Guesses</div>
+                        <div className="wordle words-list"></div>
+                    </div>
                 </div>
             </div>
         );
