@@ -55,9 +55,12 @@ class Wordle extends React.Component {
                     <div className="wordle input-title">Input Word:</div>
                     <RICIBs
                         amount={5}
-                        autoFocus
                         handleOutputString={(string) => this.handleInputchange("word", string)}
                         inputProps={[
+                            { className: "wordle word-input-box" },
+                            { className: "wordle word-input-box" },
+                            { className: "wordle word-input-box" },
+                            { className: "wordle word-input-box" },
                             { className: "wordle word-input-box" }
                         ]}
                         inputRegExp={/[A-z]/}
