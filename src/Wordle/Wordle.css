@@ -51,7 +51,7 @@
 }
 
 .wordle.help:hover::after {
-    display: flex;
+    display: block;
     transform: scale(1);
 }
 
