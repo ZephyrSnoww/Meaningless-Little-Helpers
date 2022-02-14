@@ -10,6 +10,8 @@ class Wordle extends React.Component {
         this.state = {
             word: ""
         };
+
+        this.words = [];
         
         for (let word of validWords) {
             this.words.push({
