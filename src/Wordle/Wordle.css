@@ -19,6 +19,7 @@
 }
 
 .wordle.help {
+    padding-left: 10px;
     font-size: 17px;
     position: relative;
     opacity: .5;
@@ -35,9 +36,9 @@
     bottom: 25px;
 
     display: none;
-    align-items: center;
+    /* align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
 
     padding: 10px;
 
@@ -53,10 +54,12 @@
     border-radius: 5px;
 
     transform: scale(0);
+
+    transition: 0.5s ease-out;
 }
 
 .wordle.help:hover .wordle.help-box {
-    display: flex;
+    display: block;
     transform: scale(1);
 }
 
