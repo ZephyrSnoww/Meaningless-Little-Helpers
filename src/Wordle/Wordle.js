@@ -55,8 +55,8 @@ class Wordle extends React.Component {
                     <div className="wordle input-title">Input Word 
                         <span className="wordle help word material-icons">
                             help
+                            <div className="wordle help-box word">Letters that you know the location of, in the correct location</div>
                         </span>
-                        <div className="wordle help-box word">Letters that you know the location of, in the correct location</div>
                     </div>
                     <RICIBs
                         amount={5}
