@@ -9,7 +9,8 @@ class Wordle extends React.Component {
         
         this.state = {
             word: "",
-            knownLetters: ""
+            knownLetters: "",
+            validWords: []
         };
 
         this.words = [];
@@ -38,14 +39,8 @@ class Wordle extends React.Component {
         
         let callback = null;
         
-        if (name === "word") {
-            if (value.length > 5) {
-                return;
-            }
-            
-            if (value.length === 5) {
-                callback = this.parseWords
-            }
+        if (name === "word" || name === "knownLetters") {
+            callback = this.parseWords
         }
         
         this.setState({
@@ -56,19 +51,25 @@ class Wordle extends React.Component {
     parseWords() {
         this.validWords = [];
         for (let word of this.words) {
+            let valid = true;
             for (let letter of this.state.knownLetters) {
-                if (word.includes(letter)) {
-                    this.validWords.push(word);
-                    break;
+                if (!word.word.includes(letter)) {
+                    valid = false;
                 }
             }
+            if (valid) {
+                this.validWords.push(word.word);
+            }
         }
+        this.setState({
+            validWords: this.validWords
+        });
     }
     
     render() {
         let wordElements = [];
 
-        for (let word of this.validWords) {
+        for (let word of this.state.validWords) {
             wordElements.push(
                 // <div key={word.word} className="wordle words-list-item">{word.word} {word.probability * 100}</div>
                 <div key={word} className="wordle words-list-item">{word}</div>
@@ -103,7 +104,7 @@ class Wordle extends React.Component {
                                 <div className="wordle help-box word">Letters that you don't know the location of, in any order</div>
                             </span>
                         </div>
-                        <RICIBs
+                        {/* <RICIBs
                             amount={5}
                             handleOutputString={(string) => this.handleInputchange("knownLetters", string)}
                             inputProps={[
@@ -114,7 +115,8 @@ class Wordle extends React.Component {
                                 { className: "wordle known-letter-input-box" }
                             ]}
                             inputRegExp={/[A-z]/}
-                        />
+                        /> */}
+                        <input name="knownLetters" className="wordle known-letter-input" onChange={(e) => this.handleInputchange(e)} value={this.state.knownLetters} />
                     </div>
                     <div className="wordle words-list-container">
                         <div className="wordle words-list-title">Best Guesses</div>
