@@ -67,6 +67,10 @@ class Wordle extends React.Component {
                         amount={5}
                         handleOutputString={(string) => this.handleInputchange("knownLetters", string)}
                         inputProps={[
+                            { className: "wordle known-letter-input-box" },
+                            { className: "wordle known-letter-input-box" },
+                            { className: "wordle known-letter-input-box" },
+                            { className: "wordle known-letter-input-box" },
                             { className: "wordle known-letter-input-box" }
                         ]}
                         inputRegExp={/[A-z]/}
