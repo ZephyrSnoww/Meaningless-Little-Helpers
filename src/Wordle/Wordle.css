@@ -4,3 +4,16 @@
     justify-content: center;
     flex-direction: column;
 }
+
+.wordle-input-title {
+    font-size: 23px;
+}
+
+.wordle-known-letters-title {
+    font-size: 17px;
+    margin-top: 40px;
+}
+
+.known-letter-input-box {
+    font-size: 20px;
+}
