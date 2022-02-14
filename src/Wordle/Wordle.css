@@ -9,6 +9,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    flex: 0 0 50%;
 }
 
 .wordle.input-title {
@@ -79,6 +80,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    flex: 0 0 50%;
 }
 
 .wordle.words-list-title {
@@ -92,4 +94,6 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    flex: 1 0;
+    overflow-y: scroll;
 }
