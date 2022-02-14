@@ -92,8 +92,8 @@
 
 .wordle.words-list {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     flex-direction: column;
     flex: 1 0;
     overflow-y: scroll;
