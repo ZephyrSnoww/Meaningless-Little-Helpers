@@ -17,3 +17,25 @@
 .wordle.known-letter-input-box {
     font-size: 20px;
 }
+
+.wordle.help {
+    font-size: 17px;
+    position: relative;
+}
+
+.wordle.help::after {
+    position: absolute;
+    width: 100px;
+    height: 75px;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-a1-light);
+    bottom: 25px;
+}
+
+.wordle.help.word::after {
+    content: "Testing 01";
+}
+
+.wordle.help.known::after {
+    content: "Testing 02";
+}
