@@ -42,7 +42,9 @@
     align-items: center;
     justify-content: center;
     font-family: Renogare;
+    font-size: 17px;
     text-align: center;
+    transition: .25s ease-out;
 }
 
 .wordle.help:hover::after {
@@ -50,9 +52,9 @@
 }
 
 .wordle.help.word::after {
-    content: "Testing 01";
+    content: "Letters that you know the location of, in the correct location";
 }
 
 .wordle.help.known::after {
-    content: "Testing 02";
+    content: "Letters that you don't know the location of, in any order";
 }
