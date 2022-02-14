@@ -55,7 +55,7 @@ class Wordle extends React.Component {
                     <div className="wordle-input-title">Input Word:</div>
                     <RICIBs
                         amount={5}
-                        // autoFocus
+                        autoFocus
                         handleOutputString={(string) => this.handleInputchange("word", string)}
                         inputProps={[
                             { className: "word-input-box" }
@@ -65,7 +65,6 @@ class Wordle extends React.Component {
                     <div className="wordle-known-letters-title">Known Letters:</div>
                     <RICIBs
                         amount={5}
-                        // autoFocus
                         handleOutputString={(string) => this.handleInputchange("knownLetters", string)}
                         inputProps={[
                             { className: "known-letter-input-box" }
