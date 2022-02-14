@@ -65,7 +65,7 @@
     transition: 0.5s ease-out;
 }
 
-.wordle.help:hover .wordle.help-box {
+.wordle.help:hover + .wordle.help-box {
     display: block;
     transform: scale(1);
 }
