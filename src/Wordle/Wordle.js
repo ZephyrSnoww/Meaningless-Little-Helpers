@@ -8,10 +8,12 @@ class Wordle extends React.Component {
         super(props);
         
         this.state = {
-            word: ""
+            word: "",
+            knownLetters: ""
         };
 
         this.words = [];
+        this.validWords = [];
         
         for (let word of validWords) {
             this.words.push({
@@ -52,15 +54,24 @@ class Wordle extends React.Component {
     }
     
     parseWords() {
-        
+        this.validWords = [];
+        for (let word of this.words) {
+            for (let letter of this.state.knownLetters) {
+                if (word.includes(letter)) {
+                    this.validWords.push(word);
+                    break;
+                }
+            }
+        }
     }
     
     render() {
         let wordElements = [];
 
-        for (let word of this.words) {
+        for (let word of this.validWords) {
             wordElements.push(
-                <div key={word.word} className="wordle words-list-item">{word.word} {word.probability * 100}</div>
+                // <div key={word.word} className="wordle words-list-item">{word.word} {word.probability * 100}</div>
+                <div key={word} className="wordle words-list-item">{word}</div>
             );
         }
 
