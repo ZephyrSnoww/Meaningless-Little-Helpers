@@ -53,7 +53,7 @@ class Wordle extends React.Component {
 
         for (let word of this.validWords) {
             wordElements.push(
-                <div className="wordle words-list-item">{word}</div>
+                <div key={word} className="wordle words-list-item">{word}</div>
             );
         }
 

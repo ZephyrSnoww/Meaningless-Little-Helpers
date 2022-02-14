@@ -100,7 +100,7 @@
     max-height: 80vh;
 }
 
-.wordle.words-list-element {
+.wordle.words-list-item {
     width: 90%;
     display: flex;
     align-items: center;
