@@ -46,6 +46,10 @@
     font-weight: lighter;
     text-align: center;
 
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+
     width: 200px;
     height: 75px;
 
