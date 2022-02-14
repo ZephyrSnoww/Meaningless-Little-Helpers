@@ -24,9 +24,6 @@
     opacity: .5;
     cursor: pointer;
     transition: .25s ease-out;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .wordle.help:hover {
@@ -49,11 +46,13 @@
     font-family: Renogare;
     font-size: 17px;
     text-align: center;
+    transform: scale(0);
     transition: .25s ease-out;
 }
 
 .wordle.help:hover::after {
     display: flex;
+    transform: scale(1);
 }
 
 .wordle.help.word::after {
