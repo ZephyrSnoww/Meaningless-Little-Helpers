@@ -1,19 +1,20 @@
-.wordle-container {
+.wordle.container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
 
-.wordle-input-title {
+.wordle.input-title {
     font-size: 23px;
 }
 
-.wordle-known-letters-title {
+.wordle.known-letters-title {
     font-size: 17px;
     margin-top: 40px;
 }
 
-.known-letter-input-box {
+.wordle.known-letter-input-box {
     font-size: 20px;
+    border: 1px solid var(--color-a1-light);
 }

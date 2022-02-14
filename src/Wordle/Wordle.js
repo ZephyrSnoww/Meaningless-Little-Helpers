@@ -51,23 +51,23 @@ class Wordle extends React.Component {
     render() {
         return (
             <div className="wordle main-container">
-                <div className="wordle-container">
-                    <div className="wordle-input-title">Input Word:</div>
+                <div className="wordle container">
+                    <div className="wordle input-title">Input Word:</div>
                     <RICIBs
                         amount={5}
                         autoFocus
                         handleOutputString={(string) => this.handleInputchange("word", string)}
                         inputProps={[
-                            { className: "word-input-box" }
+                            { className: "wordle word-input-box" }
                         ]}
                         inputRegExp={/[A-z]/}
                     />
-                    <div className="wordle-known-letters-title">Known Letters:</div>
+                    <div className="wordle .known-letters-title">Known Letters:</div>
                     <RICIBs
                         amount={5}
                         handleOutputString={(string) => this.handleInputchange("knownLetters", string)}
                         inputProps={[
-                            { className: "known-letter-input-box" }
+                            { className: "wordle known-letter-input-box" }
                         ]}
                         inputRegExp={/[A-z]/}
                     />
