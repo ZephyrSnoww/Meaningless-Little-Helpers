@@ -11,7 +11,12 @@ class Wordle extends React.Component {
             word: ""
         };
         
-        this.validWords = validWords;
+        for (let word of validWords) {
+            this.words.push({
+                word,
+                probability: 1
+            });
+        }
     }
     
     handleInputchange(event, value=undefined) {
@@ -51,9 +56,9 @@ class Wordle extends React.Component {
     render() {
         let wordElements = [];
 
-        for (let word of this.validWords) {
+        for (let word of this.words) {
             wordElements.push(
-                <div key={word} className="wordle words-list-item">{word}</div>
+                <div key={word.word} className="wordle words-list-item">{word.word} {word.probability * 100}</div>
             );
         }
 
