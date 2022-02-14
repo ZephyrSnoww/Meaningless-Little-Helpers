@@ -65,7 +65,7 @@ class Wordle extends React.Component {
                         ]}
                         inputRegExp={/[A-z]/}
                     />
-                    <div className="wordle .known-letters-title">Known Letters:</div>
+                    <div className="wordle known-letters-title">Known Letters:</div>
                     <RICIBs
                         amount={5}
                         handleOutputString={(string) => this.handleInputchange("knownLetters", string)}
