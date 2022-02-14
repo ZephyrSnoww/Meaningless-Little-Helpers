@@ -29,7 +29,15 @@
     height: 75px;
     background-color: var(--color-bg);
     border: 1px solid var(--color-a1-light);
+    border-radius: 10px;
     bottom: 25px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.wordle.help:hover::after {
+    display: flex;
 }
 
 .wordle.help.word::after {
