@@ -98,6 +98,7 @@
     flex: 1 0;
     overflow-y: scroll;
     max-height: 80vh;
+    width: 100%;
 }
 
 .wordle.words-list-item {
