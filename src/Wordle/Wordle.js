@@ -29,12 +29,12 @@ class Wordle extends React.Component {
         
         let callback = null;
         
-        if (name == "word") {
+        if (name === "word") {
             if (value.length > 5) {
                 return;
             }
             
-            if (value.length == 5) {
+            if (value.length === 5) {
                 callback = this.parseWords
             }
         }
