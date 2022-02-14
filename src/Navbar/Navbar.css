@@ -1,0 +1,40 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    
+    width: 100%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    padding: 5px 20px;
+    box-sizing: border-box;
+}
+
+.navbar-title {
+    font-size: 25px;
+    font-family: Squid;
+    color: var(--color-a2-light);
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-link {
+    /* flex: 0 0 100px; */
+    width: 100px;
+    text-decoration: none;
+    color: var(--color-a1-dark);
+    padding: 10px 0px;
+    transition: 0.25s ease-out;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.navbar-link:hover {
+    color: var(--color-a1-light);
+}
