@@ -116,24 +116,24 @@ class Wordle extends React.Component {
             let valid = true;
             
             for (let letter of this.state.knownLetters) {
-                if (!word.word.includes(letter)) {
+                if (!word.word.includes(letter.toLowerCase())) {
                     valid = false;
                 }
             }
             for (let letter of this.state.invalidLetters) {
-                if (word.word.includes(letter)) {
+                if (word.word.includes(letter.toLowerCase())) {
                     valid = false;
                 }
             }
             
             let wordLetters = word.word.split("");
             for (let i = 0; i < 5; i++) {
-                if (wordLetters[i] !== this.state.word[i] && this.state.word[i] !== "") {
+                if (wordLetters[i] !== this.state.word[i].toLowerCase() && this.state.word[i] !== "") {
                     valid = false;
                 }
                 
                 for (let exclusions of this.state.wordExclusions) {
-                    if (wordLetters[i] === exclusions[i] && exclusions[i] !== "") {
+                    if (wordLetters[i] === exclusions[i].toLowerCase() && exclusions[i] !== "") {
                         valid = false;
                     }
                 }
