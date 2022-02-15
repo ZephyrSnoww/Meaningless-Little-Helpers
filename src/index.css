@@ -86,6 +86,11 @@ a:hover {
     src: url("./assets/fonts/Game\ Of\ Squids.ttf");
 }
 
+@font-face {
+    font-family: Bank;
+    src: url("./assets/fonts/Bank\ Printer.ttf");
+}
+
 
 
 

@@ -20,9 +20,10 @@
 .wordle.known-letters-title {
     font-size: 17px;
     margin-top: 40px;
+    margin-bottom: 10px;
 }
 
-.wordle.known-letter-input-box {
+.wordle.known-letter-input {
     font-size: 20px;
 }
 
@@ -93,7 +94,7 @@
 .wordle.words-list {
     display: flex;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: center;
     flex-direction: column;
     flex: 1 0;
     overflow-y: scroll;
@@ -113,4 +114,8 @@
 
 .wordle.words-list-item:hover {
     background-color: var(--color-a2-dark);
+}
+
+.wordle.words-list-item-probability {
+    font-family: bank;
 }

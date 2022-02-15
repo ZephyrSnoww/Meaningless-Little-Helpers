@@ -1,0 +1,70 @@
+.known-letters-input-title {
+    display: flex;
+    border-bottom: 2px solid var(--color-a1-light);
+    margin-top: 40px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.known-letters-selection-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 450px;
+    user-select: none;
+}
+
+.known-letters-letter-checkbox-container {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.known-letters-letter-checkbox {
+    appearance: none;
+    border: 1px solid var(--color-a1-dark);
+    height: 100%;
+    flex: 0 0 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.25s ease-out;
+    cursor: pointer;
+}
+
+.known-letters-letter-checkbox-label {
+    position: absolute;
+    pointer-events: none;
+}
+
+.known-letters-letter-checkbox-container:hover .known-letters-letter-checkbox {
+    border: 1px solid var(--color-a1-light);
+    background-color: var(--color-a1-dark);
+}
+
+.known-letters-letter-checkbox:checked {
+    border: 1px solid var(--color-a2-light);
+    background-color: var(--color-a2-light);
+}
+
+.known-letters-letter-checkbox:indeterminate {
+    border: 1px solid var(--color-a1-light);
+    background-color: var(--color-a1-light);
+}
+
+.known-letters-letter-checkbox:checked:hover {
+    border: 1px solid var(--color-a2-light);
+    background-color: var(--color-a2-dark);
+}
+
+.known-letters-letter-checkbox:indeterminate:hover {
+    border: 1px solid var(--color-a1-light);
+    background-color: var(--color-a1-dark);
+}

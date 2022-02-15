@@ -1,106 +1,28 @@
-[
-    {
-        "letter": "e",
-        "probability": 11.16
-    },
-    {
-        "letter": "a",
-        "probability": 8.49
-    },
-    {
-        "letter": "r",
-        "probability": 7.58
-    },
-    {
-        "letter": "i",
-        "probability": 7.54
-    },
-    {
-        "letter": "o",
-        "probability": 7.16
-    },
-    {
-        "letter": "t",
-        "probability": 6.65
-    },
-    {
-        "letter": "n",
-        "probability": 6.65
-    },
-    {
-        "letter": "s",
-        "probability": 5.73
-    },
-    {
-        "letter": "l",
-        "probability": 5.48
-    },
-    {
-        "letter": "c",
-        "probability": 4.53
-    },
-    {
-        "letter": "u",
-        "probability": 3.63
-    },
-    {
-        "letter": "d",
-        "probability": 3.38
-    },
-    {
-        "letter": "p",
-        "probability": 3.17
-    },
-    {
-        "letter": "m",
-        "probability": 3.01
-    },
-    {
-        "letter": "h",
-        "probability": 3.00
-    },
-    {
-        "letter": "g",
-        "probability": 2.47
-    },
-    {
-        "letter": "b",
-        "probability": 2.07
-    },
-    {
-        "letter": "f",
-        "probability": 1.81
-    },
-    {
-        "letter": "y",
-        "probability": 1.78
-    },
-    {
-        "letter": "w",
-        "probability": 1.29
-    },
-    {
-        "letter": "k",
-        "probability": 1.10
-    },
-    {
-        "letter": "v",
-        "probability": 1.01
-    },
-    {
-        "letter": "x",
-        "probability": 0.29
-    },
-    {
-        "letter": "z",
-        "probability": 0.27
-    },
-    {
-        "letter": "j",
-        "probability": 0.20
-    },
-    {
-        "letter": "q",
-        "probability": 0.19
-    }
-]
+{
+    "e": 11.18,
+    "a": 8.49,
+    "r": 7.58,
+    "i": 7.54,
+    "o": 7.16,
+    "t": 6.65,
+    "n": 6.65,
+    "s": 5.73,
+    "l": 5.48,
+    "c": 4.53,
+    "u": 3.63,
+    "d": 3.38,
+    "p": 3.17,
+    "m": 3.01,
+    "h": 3.00,
+    "g": 2.47,
+    "b": 2.07,
+    "f": 1.81,
+    "y": 1.78,
+    "w": 1.29,
+    "k": 1.10,
+    "v": 1.01,
+    "x": 0.29,
+    "z": 0.27,
+    "j": 0.20,
+    "q": 0.19
+}

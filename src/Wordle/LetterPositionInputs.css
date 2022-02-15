@@ -1,0 +1,7 @@
+.invalid-inputs {
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    border-bottom: 1px solid var(--color-a1-light);
+    color: var(--color-a1-light);
+}

@@ -1,15 +1,48 @@
 import React from 'react';
 import RICIBs from 'react-individual-character-input-boxes';
+import KnownLettersInput from './KnownLettersInput';
 import validWords from './validWords.json';
+import letterProbabilities from './letterProbabilities.json';
 import './Wordle.css';
+import LetterPositionInput from './LetterPositionInput';
 
 class Wordle extends React.Component {
     constructor(props) {
         super(props);
         
         this.state = {
-            word: "",
-            knownLetters: "",
+            word: [
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            wordExclusions: [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ],
+            knownLetters: [],
+            invalidLetters: [],
             validWords: []
         };
 
@@ -24,55 +57,158 @@ class Wordle extends React.Component {
         }
     }
     
-    handleInputchange(event, value=undefined) {
-        let name;
-        let outputValue;
+    handleInputchange(event, index, exclusionNumber=null) {
+        if (event.target.value.length > 1) {
+            return;
+        }
         
-        if (event.target) {
-            name = event.target.name;
-            outputValue = value ? value : event.target.value;
+        if (exclusionNumber == null) {
+            let word = this.state.word;
+            
+            word[index] = event.target.value;
+            
+            this.setState({
+                word
+            }, this.parseWords);
         }
         else {
-            name = event;
-            outputValue = value;
+            let wordExclusions = this.state.wordExclusions
+            
+            wordExclusions[exclusionNumber][index] = event.target.value;
+            
+            this.setState({
+                wordExclusions
+            }, this.parseWords);
         }
+    }
+    
+    toggleKnownLetter(event, letter) {
+        let knownLetters = this.state.knownLetters;
+        let invalidLetters = this.state.invalidLetters;
         
-        let callback = null;
-        
-        if (name === "word" || name === "knownLetters") {
-            callback = this.parseWords
+        if (knownLetters.includes(letter)) {
+            let index = knownLetters.indexOf(letter);
+            
+            knownLetters.splice(index, 1);
+            invalidLetters.push(letter);
+            event.target.indeterminate = true;
+        }
+        else if (invalidLetters.includes(letter)) {
+            let index = invalidLetters.indexOf(letter);
+            
+            invalidLetters.splice(index, 1);
+            event.target.checked = false;
+        }
+        else {
+            knownLetters.push(letter);
+            event.target.checked = true;
         }
         
         this.setState({
-            [name]: outputValue
-        }, callback);
+            knownLetters,
+            invalidLetters
+        }, this.parseWords);
     }
     
     parseWords() {
         this.validWords = [];
+        
         for (let word of this.words) {
             let valid = true;
+            
             for (let letter of this.state.knownLetters) {
                 if (!word.word.includes(letter)) {
                     valid = false;
                 }
             }
+            for (let letter of this.state.invalidLetters) {
+                if (word.word.includes(letter)) {
+                    valid = false;
+                }
+            }
+            
+            let wordLetters = word.word.split("");
+            for (let i = 0; i < 5; i++) {
+                if (wordLetters[i] !== this.state.word[i] && this.state.word[i] !== "") {
+                    valid = false;
+                }
+                
+                for (let exclusions of this.state.wordExclusions) {
+                    if (wordLetters[i] == exclusions[i]) {
+                        valid = false;
+                    }
+                }
+            }
+            
             if (valid) {
-                this.validWords.push(word.word);
+                let probability = 1;
+                let lettersInWord = [];
+                let include = true;
+                
+                for (let letter of word.word) {
+                    if (((this.state.knownLetters.length == 0 && this.state.invalidLetters == 0) || this.state.knownLetters.length < 3) && lettersInWord.includes(letter)) {
+                        include = false;
+                    }
+                    
+                    probability *= (letterProbabilities[letter]) / 10;
+                    lettersInWord.push(letter);
+                }
+                
+                probability = Math.round(probability * 10000) / 10000;
+                
+                if (include) {
+                    if (this.validWords.length !== 0) {
+                        let inserted = false;
+                        for (let i = 0; i < this.validWords.length; i++) {
+                            if (probability > this.validWords[i].probability) {
+                                this.validWords.splice((i-1 < 0 ? 0 : i-1), 0, {
+                                    word: word.word,
+                                    probability
+                                });
+                                inserted = true;
+                                break;
+                            }
+                        }
+                        
+                        if (!inserted) {
+                            this.validWords.push({
+                                word: word.word,
+                                probability
+                            });
+                        }
+                    }
+                    else {
+                        this.validWords.push({
+                            word: word.word,
+                            probability
+                        });
+                    }
+                }
             }
         }
+        
         this.setState({
             validWords: this.validWords
         });
+    }
+    
+    componentDidMount() {
+        this.parseWords();
     }
     
     render() {
         let wordElements = [];
 
         for (let word of this.state.validWords) {
+            if (wordElements.length === 100) {
+                break;
+            }
+            
             wordElements.push(
-                // <div key={word.word} className="wordle words-list-item">{word.word} {word.probability * 100}</div>
-                <div key={word} className="wordle words-list-item">{word}</div>
+                <div key={word.word} className="wordle words-list-item">
+                    <div className="wordle words-list-item-word">{word.word}</div>
+                    <div className="wordle words-list-item-probability">{word.probability.toLocaleString()}</div>
+                </div>
             );
         }
 
@@ -80,43 +216,8 @@ class Wordle extends React.Component {
             <div className="wordle main-container">
                 <div className="wordle container">
                     <div className="wordle input-container">
-                        <div className="wordle input-title">Input Word 
-                            <span className="wordle help word material-icons">
-                                help
-                                <div className="wordle help-box word">Letters that you know the location of, in the correct location</div>
-                            </span>
-                        </div>
-                        <RICIBs
-                            amount={5}
-                            handleOutputString={(string) => this.handleInputchange("word", string)}
-                            inputProps={[
-                                { className: "wordle word-input-box" },
-                                { className: "wordle word-input-box" },
-                                { className: "wordle word-input-box" },
-                                { className: "wordle word-input-box" },
-                                { className: "wordle word-input-box" }
-                            ]}
-                            inputRegExp={/[A-z]/}
-                        />
-                        <div className="wordle known-letters-title">Known Letters 
-                            <span className="wordle help known material-icons">
-                                help
-                                <div className="wordle help-box word">Letters that you don't know the location of, in any order</div>
-                            </span>
-                        </div>
-                        {/* <RICIBs
-                            amount={5}
-                            handleOutputString={(string) => this.handleInputchange("knownLetters", string)}
-                            inputProps={[
-                                { className: "wordle known-letter-input-box" },
-                                { className: "wordle known-letter-input-box" },
-                                { className: "wordle known-letter-input-box" },
-                                { className: "wordle known-letter-input-box" },
-                                { className: "wordle known-letter-input-box" }
-                            ]}
-                            inputRegExp={/[A-z]/}
-                        /> */}
-                        <input name="knownLetters" className="wordle known-letter-input" onChange={(e) => this.handleInputchange(e)} value={this.state.knownLetters} />
+                        <LetterPositionInput letters={this.state.word} exclusions={this.state.wordExclusions} handleInputChange={(e, i, n) => this.handleInputchange(e, i, n)} />
+                        <KnownLettersInput toggleLetter={(e, l) => this.toggleKnownLetter(e, l)} />
                     </div>
                     <div className="wordle words-list-container">
                         <div className="wordle words-list-title">Best Guesses</div>
