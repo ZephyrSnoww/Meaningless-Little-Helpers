@@ -94,7 +94,7 @@
 .wordle.words-list {
     display: flex;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     flex: 1 0;
     overflow-y: scroll;
@@ -103,7 +103,8 @@
 }
 
 .wordle.words-list-item {
-    width: 90%;
+    width: 100%;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: space-between;

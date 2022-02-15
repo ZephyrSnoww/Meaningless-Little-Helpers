@@ -1,5 +1,4 @@
 import React from 'react';
-import RICIBs from 'react-individual-character-input-boxes';
 import KnownLettersInput from './KnownLettersInput';
 import validWords from './validWords.json';
 import letterProbabilities from './letterProbabilities.json';
@@ -134,7 +133,7 @@ class Wordle extends React.Component {
                 }
                 
                 for (let exclusions of this.state.wordExclusions) {
-                    if (wordLetters[i] == exclusions[i]) {
+                    if (wordLetters[i] === exclusions[i] && exclusions[i] !== "") {
                         valid = false;
                     }
                 }
@@ -146,7 +145,7 @@ class Wordle extends React.Component {
                 let include = true;
                 
                 for (let letter of word.word) {
-                    if (((this.state.knownLetters.length == 0 && this.state.invalidLetters == 0) || this.state.knownLetters.length < 3) && lettersInWord.includes(letter)) {
+                    if (((this.state.knownLetters.length === 0 && this.state.invalidLetters.length === 0) || this.state.knownLetters.length < 3) && lettersInWord.includes(letter)) {
                         include = false;
                     }
                     
