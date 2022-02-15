@@ -85,6 +85,16 @@
     flex: 0 0 50%;
 }
 
+@media (max-width: 1300px) {
+    .wordle.words-list-container {
+        flex: 0 0 25% !important;
+    }
+    
+    .wordle.container {
+        justify-content: space-between;
+    }
+}
+
 .wordle.words-list-title {
     color: var(--color-a1-light);
     border-bottom: 2px solid var(--color-a1-light);
