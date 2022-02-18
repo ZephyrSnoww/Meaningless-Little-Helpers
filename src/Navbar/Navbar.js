@@ -8,6 +8,7 @@ function Navbar(props) {
             <div className="navbar-links">
                 <Link to="/" className="navbar-link">Home</Link>
                 <Link to="/wordle" className="navbar-link">Wordle</Link>
+                <Link to="/remote" className="navbar-link">Remote</Link>
             </div>
         </div>
     );
