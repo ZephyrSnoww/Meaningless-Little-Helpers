@@ -20,9 +20,7 @@ class Remote extends React.Component {
         return (
             <div className="remote main-container">
                 <input className="remote-input" name="remoteUrl" value={this.state.remoteUrl} onChange={(e) => this.handleChange(e)} />
-                {/* <div className="remote-frame"> */}
-                    <iframe src={this.state.remoteUrl} className="remote-iframe" />
-                {/* </div> */}
+                <iframe src={this.state.remoteUrl} className="remote-iframe" />
             </div>
         );
     }
